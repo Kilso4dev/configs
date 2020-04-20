@@ -2,7 +2,7 @@ set number
 set nobackup
 set nowritebackup
 
-set cmdheight=2
+set cmdheight=4
 set shortmess+=c
 set signcolumn=yes
 
@@ -30,12 +30,15 @@ set foldmethod=syntax
 
 
 " Tab and whitespaces
-set tabstop=4
 set list
 set listchars=tab:\|\ ,space:·
 
 " indentation
 set smartindent
+"set tabstop=2
+set expandtab
+set shiftwidth=4
+set softtabstop=4
 
 " Emacs imaps
 inoremap <C-A> <esc>^i
