@@ -1,0 +1,29 @@
+{
+    "languageserver": {
+        "clangd": {
+            "command": "clangd-10",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp",
+                "h",
+                "hpp",
+                "objh",
+                "objhpp"
+            ],
+            "rootPatterns": [
+                ".clang",
+                ".vim/",
+                ".git/",
+                "compile_commands.json"
+            ],
+            "initializingOptions": {
+                "cache": {
+                    "directory": "/tmp/clangd"
+                }
+            }
+        }
+    }
+}
+
