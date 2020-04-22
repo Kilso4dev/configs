@@ -2,13 +2,12 @@ set number
 set nobackup
 set nowritebackup
 
-set cmdheight=4
+set cmdheight=2
 set shortmess+=c
 set signcolumn=yes
 
-set showcmd
-
-set wildmenu
+"set showcmd
+"set wildmenu
 
 " search
 set hlsearch
@@ -20,7 +19,35 @@ set hidden
 set showmatch
 set cursorline
 
+
+function! GitBranch()
+    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+
+" Status bar
+function! StatusLineGit()
+    let l:branchname = GitBranch()
+    return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
 set laststatus=2
+set statusline=
+set statusline+=%#CursorColumn#
+set statusline+=%{StatusLineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %l:%c
+set statusline+=\ %p%%
+set statusline+=\ \ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ 
+set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 " Folding
 set foldenable
@@ -54,8 +81,6 @@ inoremap <A-B> <b>
 inoremap <C-P> <Up>
 inoremap <C-N> <Down>
 
-" inoremap <C-V> <esc><C-d>i
-" map <A-V> <esc><C-u>i
 
 
 " automatching brackets:
@@ -87,8 +112,6 @@ call plug#end()
 
 
 " -----------------------------lsp settings for (Conquer of Completion)-----------------------------
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " autocompletion on tab
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
