@@ -85,6 +85,11 @@ inoremap <C-N> <Down>
 command Hex %!xxd
 command Hexrev  %!xxd -r
 
+" Better write/quit
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
 " automatching brackets:
 "inoremap " ""<left>
