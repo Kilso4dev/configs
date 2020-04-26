@@ -81,6 +81,9 @@ inoremap <A-B> <b>
 inoremap <C-P> <Up>
 inoremap <C-N> <Down>
 
+" HEX Editing
+command Hex %!xxd
+command Hexrev  %!xxd -r
 
 
 " automatching brackets:
