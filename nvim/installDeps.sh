@@ -35,9 +35,14 @@ elif [ -x "$(command -v zypp)" ]; then
 elif [ -x "$(command -v apt)" ]; then 
     sudo apt install --yes $DEBIAN_PKG;
     sudo systemctl enable ssh.service && sudo systemctl start ssh.service
-    
+        
     python3 -m pip install --user $PYTHON_PKG
 fi
+
+# install typescript/javascript language server
+sudo git clone https://github.com/sourcegraph/javascript-typescript-langserver.git /opt/javascript-typescript-lsp
+sudo chmod a+rwx /opt/javascript-typescript-lsp && chmod a+x /opt/javascript-typescript-lsp/lib/*
+cd /opt/javascript-typescript-lsp/ && npm install && npm run build
 
 # Add ~/.local/bin to PATH permanently
 ENV_PATH=/etc/environment

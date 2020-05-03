@@ -92,7 +92,23 @@
                     }
                 }
             }
+            }
+        }
+        ,"javascript": {
+            "command": "/opt/javascript-typescript-lsp/lib/language-server-stdio.js",
+            "args": ["--trace"],
+            "filetypes": [
+                "javascript",
+                "javascriptreact",
+                "js",
+                "ts"
+            ],
+            "rootPatterns": [
+                ".git/",
+                "package-lock.json",
+                "package.json",
+                "node_modules"
+            ]
         }
     }
-}
 }

@@ -91,6 +91,8 @@ command Wq wq
 command W w
 command Q q
 
+"command Q! q!
+
 " automatching brackets:
 "inoremap " ""<left>
 "inoremap ' ''<left>
@@ -145,8 +147,6 @@ set background=dark
 set termguicolors
 colorscheme material-monokai
 
-lua vim.api.nvim_command [[autocmd CursorHold   * lua require'gitlens'.blameVirtText()]]
-lua vim.api.nvim_command [[autocmd CursorMoved  * lua require'gitlens'.clearBlameVirtText()]]
-lua vim.api.nvim_command [[autocmd CursorMovedI * lua require'gitlens'.clearBlameVirtText()]]
-
-
+"lua vim.api.nvim_command [[autocmd CursorHold   * lua require'gitlens'.blameVirtText()]]
+"lua vim.api.nvim_command [[autocmd CursorMoved  * lua require'gitlens'.clearBlameVirtText()]]
+"lua vim.api.nvim_command [[autocmd CursorMovedI * lua require'gitlens'.clearBlameVirtText()]]
