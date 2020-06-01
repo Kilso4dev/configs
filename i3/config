@@ -10,7 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Global Colors
-set $bg-color            #F8F8F8 
+set $active-color        #00AA00
+set $bg-color            #3F3F3F
 set $inactive-bg-color   #555555
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
@@ -182,7 +183,7 @@ bindsym $mod+r mode "resize"
 
 # set window colors
 #                       border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+client.focused          $active-color      $active-color          $text-color          $indicator-color
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
@@ -190,23 +191,25 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#    status_command i3blocks
-#    font pango:monospace, FontAwesome 12
-#
-#	colors {
-#        	background $bg-color
-#	        separator #757575
+bar {
+    i3bar_command i3bar --transparency
+    status_command i3blocks
+    position top
+    font pango:monospace, FontAwesome 12
+
+	colors {
+        	background #33333300
+	        separator #757575
 #	                  border             background         text
-#        focused_workspace  $bg-color          $bg-color          $text-color
-#        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-#        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#    }
-#}
+        focused_workspace  $active-color          $active-color          $text-color
+        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    }
+}
 
 # setup i3blocks as statusbar
 
-exec_always --no-startup-id "sleep 1 && $HOME/.config/polybar/launch.sh"
+# exec_always --no-startup-id "sleep 1 && $HOME/.config/polybar/launch.sh"
 #bar {
 #	status_command i3blocks
 #	colors {
@@ -259,7 +262,7 @@ bindsym $mod+F7 exec mocp --previous
 bindsym $mod+F8 exec mocp --next
 
 # App shortcuts
-bindsym $mod+w exec "/usr/bin/opera"
+bindsym $mod+w exec "/usr/bin/chromium-browser"
 bindsym $mod+n exec "/usr/bin/thunar"
 
 # take screenshot
@@ -270,7 +273,7 @@ bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Autostart apps
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec_always --no-startup-id "pkill picom ; sleep 1 && picom -f -c --experimental-backends"
+exec_always --no-startup-id "pkill compton; sleep 1 && compton -f -c"
 exec --no-startup-id nm-applet
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 2s && kalu"
@@ -297,9 +300,9 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Home mode "$mode_system"
 
 for_window [class="^.*"] border pixel 2
-
+# !Only works with i3-gaps!
 gaps inner 6
 gaps outer -3
-

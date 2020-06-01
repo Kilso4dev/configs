@@ -24,9 +24,16 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
+# Date Time
+#
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+align=center
+color=#FFFF00
 
 # Volume indicator
 #
@@ -34,26 +41,30 @@ markup=none
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-label=VOL
+# label=VOL
 label=♪
 instance=Master
 #instance=PCM
-interval=persist
-#signal=10
+interval=once
+signal=10
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-#[memory]
+[memory]
 #label=MEM
-#separator=false
-#interval=30
+label=RAM
+separator=false
+interval=30
+color=#ff5757
 
-#[memory]
+[memory]
 #label=SWAP
-#instance=swap
-#separator=false
-#interval=30
+label=⇔
+instance=swap
+separator=false
+interval=30
+color=#ff3030
 
 # Disk usage
 #
@@ -61,9 +72,10 @@ interval=persist
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=HOME
-#instance=/mnt/data
+label=
+instance=/
 interval=30
+color=#ff0000
 
 # Network interface monitoring
 #
@@ -72,27 +84,31 @@ interval=30
 [iface]
 #instance=wlan0
 color=#00FF00
-interval=5
+interval=10
 separator=false
 
 #[wifi]
 #instance=wlp3s0
-#interval=10
+#interval=20
 #separator=false
 
-#[bandwidth]
+[bandwidth]
 #instance=eth0
-#interval=5
+interval=5
+color=#AAAAAA
 
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
+# label=CPU
+label=
 interval=5
 min_width=CPU: 100.00%
-separator=false
+align=center
+#separator=false
+color=#FFFFFF
 
 #[load_average]
 #interval=10
@@ -100,17 +116,11 @@ separator=false
 # Battery indicator
 #
 # The battery instance defaults to 0.
-[battery]
-label=BAT
-label=⚡
-instance=1
-interval=30
-
-# Date Time
-#
-[time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=1
+#[battery]
+#label=BAT
+#label=⚡
+#instance=1
+#interval=30
 
 # Generic media player support
 #
@@ -132,9 +142,12 @@ interval=1
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
+[temperature]
+# label=TEMP
+label=
+interval=10
+align=center
+color=#00DDFF
 
 # Key indicators
 #
@@ -150,4 +163,4 @@ interval=1
 #[keyindicator]
 #instance=NUM
 #interval=once
-#signal=11
+#
