@@ -1,0 +1,32 @@
+#!/bin/bash
+GAPS_BRANCH="gaps-next"
+
+GAPS_URL="https://github.com/Airblader/i3.git"
+
+GAPS_FOLDER="/opt/i3-gaps"
+
+# Install dependencies
+# Uncomment following if on ubuntu based:
+#apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+#	libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
+#	libstartup-notification0-dev libxcb-randr0-dev \
+#	libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+#	libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+#	autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev
+
+# Uncomment following if on Debian-based
+# apt install -y dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev libxcb-shape0 libxcb-shape0-dev
+
+if [ ! -d "$GAPS_FOLDER" ]; then
+	git clone ${GAPS_URL} ${GAPS_FOLDER}
+fi
+cd ${GAPS_FOLDER}
+
+git checkout ${GAPS_BRANCH} && git pull
+autoreconf --force --install
+rm -rf build
+mkdir build
+cd build
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+make
+make install
