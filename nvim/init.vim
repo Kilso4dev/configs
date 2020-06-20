@@ -145,8 +145,11 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " -----------------------------Nerdtree Setup-----------------------------
-
+" position: right
 let g:NERDTreeWinPos = "right"
+" close instantly
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Open on startup
 autocmd vimenter * NERDTree
 
 
