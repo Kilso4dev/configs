@@ -17,7 +17,7 @@ set ignorecase
 " UI
 set hidden
 set showmatch
-set cursorline
+"set cursorline
 
 
 function! GitBranch()
@@ -58,7 +58,7 @@ set foldmethod=syntax
 
 " Tab and whitespaces
 set list
-set listchars=tab:\|\ ,space:·
+set listchars=tab:\|\ 
 
 " indentation
 set smartindent
@@ -117,6 +117,8 @@ Plug 'prabirshrestha/vim-lsp'
 
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'preservim/nerdtree'
+
 call plug#end()
 
 
@@ -142,10 +144,16 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" -----------------------------Nerdtree Setup-----------------------------
+
+let g:NERDTreeWinPos = "right"
+autocmd vimenter * NERDTree
+
+
 " -----------------------------colorscheme settings-----------------------------
 set background=dark
 set termguicolors
-colorscheme material-monokai
+colorscheme slate
 
 "lua vim.api.nvim_command [[autocmd CursorHold   * lua require'gitlens'.blameVirtText()]]
 "lua vim.api.nvim_command [[autocmd CursorMoved  * lua require'gitlens'.clearBlameVirtText()]]
