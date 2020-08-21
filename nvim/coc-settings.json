@@ -1,7 +1,7 @@
 {
     "languageserver": {
         "clangd": {
-            "command": "clangd-10",
+            "command": "clangd",
             "filetypes": [
                 "c",
                 "cpp",

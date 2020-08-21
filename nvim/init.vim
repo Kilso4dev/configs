@@ -150,13 +150,14 @@ let g:NERDTreeWinPos = "right"
 " close instantly
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Open on startup
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 
 
 " -----------------------------colorscheme settings-----------------------------
+colorscheme slate
 set background=dark
 set termguicolors
-colorscheme slate
+highlight Pmenu ctermbg=Black guibg=Black
 
 "lua vim.api.nvim_command [[autocmd CursorHold   * lua require'gitlens'.blameVirtText()]]
 "lua vim.api.nvim_command [[autocmd CursorMoved  * lua require'gitlens'.clearBlameVirtText()]]
