@@ -19,8 +19,8 @@ maxImages = 10
 TOP_OF = TIME_MONTH
 
 USER_AGENT = 'Wallpaperscript/0.1 by k1lso'
-USER_ID = 'hs_ArJmxBT3pBQ'
-SECRET = '40_1uykBIBeAjjlSox0ccTOzTYU'
+USER_ID = ''
+SECRET = ''
 
 endpoints = {
         'auth': 'https://www.reddit.com/api/v1/access_token',
