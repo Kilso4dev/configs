@@ -1,3 +1,8 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 set number
 set nobackup
 set nowritebackup
@@ -6,8 +11,8 @@ set cmdheight=2
 set shortmess+=c
 set signcolumn=yes
 
-"set showcmd
-"set wildmenu
+set showcmd
+set wildmenu
 
 " search
 set hlsearch
@@ -17,7 +22,7 @@ set ignorecase
 " UI
 set hidden
 set showmatch
-"set cursorline
+set cursorline
 
 
 function! GitBranch()
@@ -105,9 +110,11 @@ command Q q
 
 " PLUG registering
 call plug#begin()
-
+" Material color theme
 Plug 'skielbasa/vim-material-monokai'
+" Plugin for lsp-protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
@@ -118,6 +125,9 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'preservim/nerdtree'
+
+" React JSX syntax highlighting and indenting for vim
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 
@@ -149,14 +159,19 @@ nmap <silent> gr <Plug>(coc-references)
 let g:NERDTreeWinPos = "right"
 " close instantly
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Open on startup
-autocmd vimenter * NERDTree
+
 
 
 " -----------------------------colorscheme settings-----------------------------
 set background=dark
 set termguicolors
 colorscheme slate
+
+" Some colorscheme fixes
+highlight Pmenu ctermbg=Black guibg=Black
+highlight PmenuSel ctermbg=Grey guibg=Grey
+highlight CursorLine ctermbg=DarkGreen guibg=DarkGreen cterm=none
+highlight PreProc ctermbg=White guibg=White
 
 "lua vim.api.nvim_command [[autocmd CursorHold   * lua require'gitlens'.blameVirtText()]]
 "lua vim.api.nvim_command [[autocmd CursorMoved  * lua require'gitlens'.clearBlameVirtText()]]
