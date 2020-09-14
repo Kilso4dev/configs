@@ -159,13 +159,15 @@ nmap <silent> gr <Plug>(coc-references)
 let g:NERDTreeWinPos = "right"
 " close instantly
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+" Open on startup
+"autocmd vimenter * NERDTree
 
 
 " -----------------------------colorscheme settings-----------------------------
+colorscheme slate
 set background=dark
 set termguicolors
-colorscheme slate
+highlight Pmenu ctermbg=Black guibg=Black
 
 " Some colorscheme fixes
 highlight Pmenu ctermbg=Black guibg=Black

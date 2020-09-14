@@ -306,3 +306,6 @@ for_window [class="^.*"] border pixel 2
 # !Only works with i3-gaps!
 gaps inner 6
 gaps outer -3
+
+# workspace Setup:
+workspace 1 output primary

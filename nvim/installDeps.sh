@@ -41,9 +41,7 @@ fi
 
 # install typescript/javascript language server
 sudo git clone https://github.com/sourcegraph/javascript-typescript-langserver.git /opt/javascript-typescript-lsp
-sudo chmod a+rwx /opt/javascript-typescript-lsp && chmod a+x \
-    /opt/javascript-typescript-lsp/lib/language-server.js \
-    /opt/javascript-typescript-lsp/lib/language-server.js
+sudo chmod a+rwx /opt/javascript-typescript-lsp && chmod a+x /opt/javascript-typescript-lsp/lib/*
 cd /opt/javascript-typescript-lsp/ && npm install && npm run build
 
 # Add ~/.local/bin to PATH permanently
