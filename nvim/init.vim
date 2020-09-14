@@ -110,19 +110,20 @@ command Q q
 
 " PLUG registering
 call plug#begin()
-" Material color theme
-Plug 'skielbasa/vim-material-monokai'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
+
+Plug 'tpope/vim-fugitive'
+
 " Plugin for lsp-protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-
-Plug 'jiangmiao/auto-pairs'
 
 Plug 'preservim/nerdtree'
 
@@ -161,6 +162,11 @@ let g:NERDTreeWinPos = "right"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Open on startup
 "autocmd vimenter * NERDTree
+
+
+" -----------------------------indentLine Setup-----------------------------
+
+let g:indentLine_char = '|'
 
 
 " -----------------------------colorscheme settings-----------------------------
