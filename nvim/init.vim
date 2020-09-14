@@ -167,6 +167,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " -----------------------------indentLine Setup-----------------------------
 
 let g:indentLine_char = '|'
+"let g:indentLine_concealcursor=0
 
 
 " -----------------------------colorscheme settings-----------------------------
