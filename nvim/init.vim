@@ -116,6 +116,8 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'sheerun/vim-polyglot'
+
 " Plugin for lsp-protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
