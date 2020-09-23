@@ -1,20 +1,28 @@
 [bar/taskbar]
-font-0 = "pango:size=12"
-font-1 = "Roboto:size=12"
-font-2 = "FontAwesome"
-font-3 = "unifont"
+monitor = ${env:MONITOR}
+font-0 = "DejaVu Sans:size=10"
+font-1 = "FontAwesome5Free:style=Reqular:size=10"
+font-2 = "FontAwesome5Free:style=Solid:size=10"
+font-3 = "Wuncon Siji"
+font-4 = "unifont:size=10"
+
+
+pin-workspaces = true
+index-sort = true
+
 bottom = false
 fixed-center = true
 tray-position = right
-background = #00404040
-font = 1
+background = #C0404040
+font = 0
 
 line-size = 2
 line-color = #177a00
 
 modules-center = date
 modules-left = i3
-modules-right = network network-wireless alsa filesystem cpu battery
+modules-right = network network-wireless alsa filesystem cpu
+#battery
 
 padding = 2
 
@@ -37,13 +45,13 @@ date = %d-%m-%Y%
 time = %H:%M:%S
 label = [%date%]  [%time%]
 label-padding = 2
-label-underline = #00FFFB
-label-background = #33555555
+label-underline = #C000FFFB
 
 [module/network]
 type = internal/network
-label-connected = %local_ip% / %local_ip6%
-interface = eth0
+label-connected = LAN:%local_ip%
+#/ %local_ip6%
+interface = enp4s0
 format-connected-padding = 2
 format-connected-underline = #00cc00
 format-disconnected-padding = 2
@@ -51,24 +59,25 @@ format-disconnected-underline = #cc0000
 
 [module/network-wireless]
 type = internal/network
-label-connected = %local_ip% / %local_ip6%
-interface = wlp1s0
+label-connected = WIFI:%local_ip%
+#/ %local_ip6%
+interface = wlp5s0
 format-connected-padding = 2
 format-connected-underline = #00cc00
 format-disconnected-padding = 1
 format-disconnected-underline = #cc0000
 
-[module/battery]
-type = internal/battery
+#[module/battery]
+#type = internal/battery
 
-full-at = 100
-battery = BAT0
-adapter = AC0
-poll-intervall = 5
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #00FF00
-format-charging-padding = 1
-label-charging = %percentage:003%%
+#full-at = 100
+#battery = BAT0
+#adapter = AC0
+#poll-intervall = 5
+#format-charging = <animation-charging> <label-charging>
+#format-charging-underline = #00FF00
+#format-charging-padding = 1
+#label-charging = %percentage:003%%
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = #FFFF00
@@ -146,22 +155,33 @@ ramp-coreload-7-foreground = #FF0000
 
 [module/i3]
 type = internal/i3
+
 enable-click = true
+index-sort = true
+pin-workspaces = true
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
+ws-icon-default = 
 
-
-label-mode = %mode%
-label-mode-padding = 3
-label-mode-background = #e60053
+format-padding = 1
 
 label-unfocused = %icon% %index%
-label-unfocused-padding = 3
+label-unfocused-foreground = #BBBBBB
+label-unfocused-background = #444444
+label-unfocused-padding = 2
+
+label-urgent = %icon% %index%
+label-urgent-foreground = #BBBBBB
+label-urgent-background = #444444
+label-urgent-padding = 2
+
+label-visible = %icon% %index%
+label-visible-foreground = #BBBBBB
+label-visible-background = #444444
+label-visible-padding = 2
 
 label-focused = %icon% %index%
-label-focused-foreground = #ffffff
-label-focused-background = #5f5f5f
-label-focused-underline = #177a00
-label-focused-padding = 3
+label-focused-foreground = #FFFFFF
+label-focused-background = #888888
+label-focused-underline = #009900
+label-focused-padding = 2
