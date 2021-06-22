@@ -1,0 +1,17 @@
+#!/bin/bash
+
+deps=('cmake' 'git' 'gperf' 'lua51-mpack' 'lua51-lpeg' 'xclip' 'xsel')
+src='https://github.com/neovim/neovim.git'
+
+DST_DIR='neovim'
+INSTALL_DIR='neovim-manual-install'
+ROOT_DIR='neovim-manual'
+
+mkdir -p $ROOT_DIR && cd $ROOT_DIR
+mkdir -p build
+
+printf "Downloading neovim"
+git clone $src $DST_DIR && cd $DST_DIR
+
+DESTDIR="$INSTALL_DIR" cmake --build ../build --target install
+
