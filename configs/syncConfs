@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+import os
+
+system_dir = '~/.config'
+
+rep_dir = '.'
+
+dirs = [
+    'i3',
+    'nvim',
+]
+
+def main():
+    print('main!')
+
+if __name__ == '__main__':
+    main()

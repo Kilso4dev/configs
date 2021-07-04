@@ -4,7 +4,7 @@ require('lualine')
     options = {
         theme = 'powerline',
 -- i.e:       
-        section_seperators = { '', '' },
+        section_separators = '',
     },
     sections = {
         lualine_a = { 'mode' },

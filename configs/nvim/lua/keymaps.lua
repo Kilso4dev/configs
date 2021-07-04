@@ -7,6 +7,9 @@ local maps = {
   {'i', '<C-A>', '<esc>^i', opts},
   {'i', '<C-E>', '<esc>$a', opts},
 
+  -- exit modes
+  {'', '<C-c>', '<esc>', opts},
+
   -- Convenience maps for alternate buffer
   {'i', '<C-^>', ':e #', opts},
 

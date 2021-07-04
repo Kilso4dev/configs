@@ -1,24 +1,31 @@
 
 " PLUG registering
 call plug#begin()
+" statusLine
 Plug 'hoob3rt/lualine.nvim'
+
+" Task list(TODOs and similar)
 Plug 'vim-scripts/TaskList.vim'
 
-Plug 'jiangmiao/auto-pairs'
+
 Plug 'Yggdroot/indentLine'
 
+"Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" vim languages
 Plug 'sheerun/vim-polyglot'
-Plug 'ARM9/arm-syntax-vim'
+
+" matching brackets
+Plug 'jiangmiao/auto-pairs'
+" Rainbow brackets
+Plug 'frazrepo/vim-rainbow'
 
 " Plugin for lsp-protocol not usable until nvim 0.5
 Plug 'neovim/nvim-lspconfig' 
 Plug 'hrsh7th/nvim-compe'
 "Plug 'vim-syntastic/syntastic'
 
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
 
 " Python folding
@@ -27,10 +34,9 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-
+" Better Filetree
 Plug 'preservim/nerdtree'
+
 
 " React JSX syntax highlighting and indenting for vim
 Plug 'mxw/vim-jsx'
@@ -140,7 +146,7 @@ let g:tex_conceal = ""
 
 " -----------------------------coc-prettier-----------------------------
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+-- command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 
 " ----------------------------ARM-syntax------------------------------
@@ -160,3 +166,6 @@ au BufNewFile,BufRead *.s,*.S set filetype=armv4 " arm = armv6/7 -- armv5/armv4
 " TODO add as own little colorscheme
 "syn match celTODO /INFO/
 "hi celTODO ctermfg=Red guifg=Red
+
+" -----------------------------rainbow brackets-----------------------------
+let g:rainbow_active = 1

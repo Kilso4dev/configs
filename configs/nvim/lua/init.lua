@@ -39,7 +39,7 @@ vim.o.clipboard = 'unnamedplus'
 
 -- folding
 vim.wo.foldenable = true
-vim.o.foldlevelstart = 99
+vim.o.foldlevelstart = 0
 vim.wo.foldnestmax = 99
 vim.wo.foldmethod = 'syntax'
 vim.wo.foldtext = require'fold'.setup()
@@ -73,7 +73,6 @@ require('statusbar')
 
 require('gitlens') -- Custom gitlens file
 
--- require('setup_autocompletion') -- autocompletion setup TODO Wait for nvim 0.5
 require('setup_lsp') -- Lsp and autocompletion setup 
 
 -- Custom highlighting

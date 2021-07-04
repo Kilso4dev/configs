@@ -121,12 +121,12 @@ end
 
 
 local servers = {
-    --['rls'] = {},
-    --['rust_analyzer'] = {},
-    --['pyright'] = {},
-    --['clangd'] = {},
-    --['ccls'] = {},
-    --['tsserver'] = {},
+    ['rls'] = {},
+    ['rust_analyzer'] = {},
+    ['pyright'] = {},
+    ['clangd'] = {},
+    ['ccls'] = {},
+    ['tsserver'] = {},
 }
 local custom_servers = {
 
