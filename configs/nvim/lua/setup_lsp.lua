@@ -118,6 +118,10 @@ local on_attach = function(client, bufnr)
 end
 -- setup language servers and autocompletion
 
+-- setup/install elixir-ls if not existing:
+-- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
+-- unzip elixir-ls.zip -d /path/to/elixir-ls
+-- chmod +x /path/to/elixir-ls/language_server.sh
 
 
 local servers = {
@@ -125,16 +129,18 @@ local servers = {
     ['rust_analyzer'] = {},
     ['pyright'] = {},
     ['clangd'] = {},
-    ['ccls'] = {},
+    --['ccls'] = {},
     ['tsserver'] = {},
+    ['elixirls'] = {cmd = {'~/.config/nvim/lsps/elixir-ls/language_server.sh'}},
 }
 local custom_servers = {
 
 }
 
-for lsp, settings in pairs(servers) do
-    nvim_lsp[lsp].setup { 
-        on_attach = on_attach,
-        settings = settings
-    }
+
+for lsp, setup in pairs(servers) do
+    local setup_pre = setup;
+    setup_pre['on_attach'] = on_attach;
+
+    nvim_lsp[lsp].setup(setup_pre)
 end

@@ -1,2 +1,3 @@
 package-lock.json
-nvim/plugged/
+configs/nvim/plugged/
+configs/nvim/lsps/

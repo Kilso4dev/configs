@@ -39,7 +39,7 @@ vim.o.clipboard = 'unnamedplus'
 
 -- folding
 vim.wo.foldenable = true
-vim.o.foldlevelstart = 0
+vim.o.foldlevelstart = 99
 vim.wo.foldnestmax = 99
 vim.wo.foldmethod = 'syntax'
 vim.wo.foldtext = require'fold'.setup()

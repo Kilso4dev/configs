@@ -2,9 +2,10 @@
 require('lualine')
     .setup{
     options = {
-        theme = 'powerline',
 -- i.e:       
         section_separators = '',
+        component_separators = '',
+        theme = 'onedark',
     },
     sections = {
         lualine_a = { 'mode' },
@@ -20,7 +21,7 @@ require('lualine')
         'filetype',
         },
         lualine_y = { 'progress' },
-        lualine_z = { 'location'  },
+        lualine_z = { 'location' },
     },
     inactive_sections = {
         lualine_a = {  },
@@ -30,5 +31,5 @@ require('lualine')
         lualine_y = {  },
         lualine_z = {  },
     },
-    extensions = { 'fugitive' }
+    extensions = { 'fugitive', 'nerdtree' }
 }

@@ -7,15 +7,18 @@ local maps = {
   {'i', '<C-A>', '<esc>^i', opts},
   {'i', '<C-E>', '<esc>$a', opts},
 
-  -- exit modes
-  {'', '<C-c>', '<esc>', opts},
-
   -- Convenience maps for alternate buffer
   {'i', '<C-^>', ':e #', opts},
+
+  -- exit modes
+  {'', '<C-c>', '<esc>', opts},
 
   -- Building
   {'', '<F2>', ':make<CR>', opts}, -- Build via Makefile
   {'', '<F3>', ':make run<CR>', opts}, -- Build and run via Makefile
+
+  -- Terminal mode
+  {'t', '<Esc>', '<C-\\><C-n>', opts}, -- Exit by pressing <esc>
 }
 
 for c in ipairs(maps) do

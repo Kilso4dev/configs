@@ -5,7 +5,6 @@ endif
 
 source ~/.config/nvim/plug.vim
 
-
 " Debugging
 source ~/.config/nvim/SyntaxAttr.vim
 map -a :call SyntaxAttr()<CR>
@@ -15,6 +14,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 augroup Intercept
+
+" -----------------------------colorscheme settings-----------------------------
 
 lua require('init')
 " -----------------------------statusbar lua-----------------------------

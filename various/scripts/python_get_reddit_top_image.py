@@ -4,6 +4,7 @@ import json
 import requests as req
 import os
 
+
 CMP_FIELD = 'created_utc'
 
 TIME_HOUR = 'hour'
@@ -67,6 +68,7 @@ def authorize():
     else:
         print('Access token not present')
     return None
+
 
 
 def revoke(token, token_type):

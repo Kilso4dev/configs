@@ -19,7 +19,7 @@ Plug 'sheerun/vim-polyglot'
 " matching brackets
 Plug 'jiangmiao/auto-pairs'
 " Rainbow brackets
-Plug 'frazrepo/vim-rainbow'
+"Plug 'frazrepo/vim-rainbow'
 
 " Plugin for lsp-protocol not usable until nvim 0.5
 Plug 'neovim/nvim-lspconfig' 
@@ -146,7 +146,7 @@ let g:tex_conceal = ""
 
 " -----------------------------coc-prettier-----------------------------
 
--- command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 
 " ----------------------------ARM-syntax------------------------------
